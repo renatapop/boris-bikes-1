@@ -1,7 +1,7 @@
-require 'docking_station'
+require 'bike'
 
-describe 'Bike' do
+describe Bike do
   it 'responds to a method "working?"' do
-    expect(subject.working?).to eq true
-  end 
+    expect(subject). to respond_to :working?
+  end
 end
