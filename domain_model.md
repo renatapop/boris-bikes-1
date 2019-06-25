@@ -24,4 +24,5 @@ Docking Station  | release_bike
 #### Draw a diagram that shows how your Objects will use Messages to communicate with one another
 
 Bike <--- working? ---> true/false
+
 Docking Station <--- release a bike ---> bike
