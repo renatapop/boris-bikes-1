@@ -1,5 +1,5 @@
 ### To complete this challenge, you will need to:
-####Write down all the nouns in the User Stories
+#### Write down all the nouns in the User Stories
 As a **person**,
 So that I can use a **bike**,
 I'd like a **docking station** to release a **bike**.
@@ -8,9 +8,13 @@ As a **person**,
 So that I can use a good **bike**,
 I'd like to see if a **bike** is working.
 #### Write down all the verbs in the User Stories
-use release
+As a person,
+So that I can **use** a bike,
+I'd like a docking station to **release** a bike.
 
-use see if bike working
+As a person,
+So that I can **use** a good bike,
+I'd like to **see if a bike is working**.
 #### Draw a table like the one above
 Objects  | Messages
 ------------- | -------------
