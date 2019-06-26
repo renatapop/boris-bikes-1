@@ -14,6 +14,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise 'Already has a bike docked' unless @bike.nil?
     @bike = bike
   end
 
