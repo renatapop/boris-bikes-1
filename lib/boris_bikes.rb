@@ -15,7 +15,11 @@ class DockingStation
 
   def dock(bike)
     raise 'Already has a bike docked' unless @bike.nil?
-    @bike = bike
+    @bikes = bike
   end
 
 end
+
+docking_station = DockingStation.new
+
+20.times {docking_station.dock Bike.new}
