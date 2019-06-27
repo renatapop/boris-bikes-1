@@ -1,4 +1,4 @@
-# require 'pry'
+require 'pry'
 
 class Bike
   def working?
@@ -17,13 +17,13 @@ class DockingStation
   DEFAULT_CAPACITY = 20
 
   def initialize(capacity=DEFAULT_CAPACITY)
-    # @bikes = bike
     @bikes = []
     @capacity = capacity
   end
 
   def release_bike
     fail 'No bikes available' if empty?
+    fail 'No bikes available' if any_working
     @bikes.pop
   end
 
@@ -32,13 +32,21 @@ class DockingStation
     @bikes << bike
   end
 
-  # def report_bike(bike)
-  #   dock(bike)
-  #   bike.working?(false)
-  # end
-
   private
   attr_reader :bikes
+
+  def any_working
+    working_bikes = []
+    broken_bikes = []
+    @bikes.each do |bike|
+      if bike.broken? == true
+        broken_bikes << bike
+      else 
+        working_bikes << bike
+      end
+    end
+    working_bikes.empty? ? true : false
+  end
 
   def full?
     @bikes.length >= capacity
@@ -49,10 +57,8 @@ class DockingStation
   end
 
 end
-#
-# docking_station = DockingStation.new
-# bike = Bike.new
-# docking_station.initialize
 
-# 20.times {docking_station.dock Bike.new}
-# binding.pry
+docking_station = DockingStation.new
+bike = Bike.new
+
+binding.pry
