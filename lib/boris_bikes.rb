@@ -1,3 +1,4 @@
+require 'pry'
 
 class Bike
   def working?
@@ -6,11 +7,13 @@ class Bike
 end
 
 class DockingStation
-  attr_reader :bikes
+  attr_reader :capacity
+  DEFAULT_CAPACITY = 20
 
-  def initialize
+  def initialize(capacity=DEFAULT_CAPACITY)
     # @bikes = bike
     @bikes = []
+    @capacity = capacity
   end
 
   def release_bike
@@ -24,9 +27,10 @@ class DockingStation
   end
 
   private
+  attr_reader :bikes
 
   def full?
-    @bikes.length >= 20
+    @bikes.length >= capacity
   end
 
   def empty?
@@ -36,6 +40,7 @@ class DockingStation
 end
 #
 # docking_station = DockingStation.new
+# bike = Bike.new
 # docking_station.initialize
 
 # 20.times {docking_station.dock Bike.new}
