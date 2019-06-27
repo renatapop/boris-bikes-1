@@ -1,4 +1,3 @@
-require 'pry'
 
 class Bike
   def working?
@@ -15,19 +14,29 @@ class DockingStation
   end
 
   def release_bike
-    fail 'No bikes available' if @bikes.empty?
+    fail 'No bikes available' if empty?
     @bikes.pop
   end
 
   def dock(bike)
-    raise 'Station is full' if @bikes.length >= 20
+    raise 'Station is full' if full?
     @bikes << bike
   end
 
-end
+  private
 
-docking_station = DockingStation.new
-docking_station.initialize
+  def full?
+    @bikes.length >= 20
+  end
+
+  def empty?
+    @bikes.empty?
+  end
+
+end
+#
+# docking_station = DockingStation.new
+# docking_station.initialize
 
 # 20.times {docking_station.dock Bike.new}
 # binding.pry
