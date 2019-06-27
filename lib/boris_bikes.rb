@@ -1,8 +1,14 @@
-require 'pry'
+# require 'pry'
 
 class Bike
   def working?
     true
+  end
+  def report_bike
+    @broken = true
+  end
+  def broken?
+    @broken
   end
 end
 
@@ -25,6 +31,11 @@ class DockingStation
     raise 'Station is full' if full?
     @bikes << bike
   end
+
+  # def report_bike(bike)
+  #   dock(bike)
+  #   bike.working?(false)
+  # end
 
   private
   attr_reader :bikes
