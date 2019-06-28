@@ -1,16 +1,5 @@
 require 'pry'
-
-class Bike
-  def working?
-    true
-  end
-  def report_bike
-    @broken = true
-  end
-  def broken?
-    @broken
-  end
-end
+require_relative 'bike'
 
 class DockingStation
   attr_reader :capacity
@@ -30,6 +19,17 @@ class DockingStation
   def dock(bike)
     raise 'Station is full' if full?
     @bikes << bike
+  end
+
+  def release_broken
+    broken_bikes = []
+    @bikes.each_with_index do |bike, index|
+      if bike.broken? == true
+        broken_bikes << bike
+        @bikes.delete_at(index)
+      end
+    end
+    broken_bikes
   end
 
   private
@@ -61,4 +61,4 @@ end
 docking_station = DockingStation.new
 bike = Bike.new
 
-binding.pry
+# binding.pry
